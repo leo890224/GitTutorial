@@ -33,5 +33,6 @@ int main(array<System::String^>^ args)
     }
     while (!Guess(guess));
 
+    printf("abc");
     return 0;
 }
