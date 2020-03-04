@@ -33,6 +33,10 @@ int main(array<System::String^>^ args)
     }
     while (!Guess(guess));
 
+<<<<<<< HEAD
     //fuck
+=======
+    printf("abc");
+>>>>>>> 5c2e2a1901290354ab2e6403f65f25e04ba569ab
     return 0;
 }
