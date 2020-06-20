@@ -124,6 +124,7 @@
 #include "audio.h"
 #include "gamelib.h"
 #include "mygame.h"
+#include "Background.h"
 
 namespace game_framework {
 
@@ -195,6 +196,27 @@ void CAnimation::OnMove()
 	}
 }
 
+void CAnimation::OnMoveRange(int from, int to)
+{
+	GAME_ASSERT(bmp.size() != 0, "CAnimation: Bitmaps must be loaded first.");
+	if (--delay_counter <= 0) {
+		delay_counter = delay_count;
+		for (int i = 0; i < from; i++) {
+			bmp_iter++;
+			bmp_counter++;
+		}
+		bmp_iter++;
+		bmp_counter++;
+
+		if (bmp_iter == next(bmp.begin(), to)) {
+			for (int i = from - to; i >= 0; i--) {
+				bmp_iter--;
+			}
+			bmp_counter = 0;
+		}
+	}
+}
+
 void CAnimation::Reset()
 {
 	GAME_ASSERT(bmp.size() != 0,"CAnimation: Bitmaps must be loaded first.");
@@ -240,22 +262,13 @@ int CAnimation::Width()
 // 2. 自己寫到運用CMovingBitmap的程式時，可以參考下列程式的寫法
 /////////////////////////////////////////////////////////////////////////////
 
-CMovingBitmap CInteger::digit[11];
+CMovingBitmap CInteger::digit[10];
+CMovingBitmap CInteger::base_digit[10];
+CMovingBitmap CInteger::upgrade_digit[10];
 
-CInteger::CInteger(int digits)
-: NUMDIGITS(digits)
+CInteger::CInteger(int digits): NUMDIGITS(digits)
 {
 	isBmpLoaded = false;
-}
-
-void CInteger::Add(int x)
-{
-	n += x;
-}
-
-int CInteger::GetInteger()
-{
-	return n;
 }
 
 void CInteger::LoadBitmap()
@@ -264,11 +277,21 @@ void CInteger::LoadBitmap()
 	// digit[i]為class varibale，所以必須避免重複LoadBitmap
 	//
 	if (!isBmpLoaded) {
-		int d[11]={IDB_0,IDB_1,IDB_2,IDB_3,IDB_4,IDB_5,IDB_6,IDB_7,IDB_8,IDB_9,IDB_MINUS};
-		for (int i=0; i < 11; i++)
+		int d[10] = {IDB_0,IDB_1,IDB_2,IDB_3,IDB_4,IDB_5,IDB_6,IDB_7,IDB_8,IDB_9};
+		int b_d[10] = {zero, one, two, three, four, five, six, seven, eight, nine};
+		int u_d[10] = { L0, L1, L2, L3, L4, L5, L6, L7, L8, L9 };
+		for (int i = 0; i < 10; i++)
+		{
 			digit[i].LoadBitmap(d[i],RGB(255,255,255));
+			base_digit[i].LoadBitmap(b_d[i], RGB(255, 255, 255));
+			upgrade_digit[i].LoadBitmap(u_d[i], RGB(255, 255, 255));
+		}			
 		isBmpLoaded = true;
 	}
+	slash.LoadBitmap(SLASH,RGB(255,255,255));
+	slash2.LoadBitmap(SLASH2, RGB(255, 255, 255));
+	won.LoadBitmap(WON, RGB(255, 255, 255));
+	Lwon.LoadBitmap(LW, RGB(255, 255, 255));
 }
 
 void CInteger::SetInteger(int i)
@@ -281,28 +304,95 @@ void CInteger::SetTopLeft(int nx, int ny)		// 將動畫的左上角座標移至 (x,y)
 	x = nx; y = ny;
 }
 
-void CInteger::ShowBitmap()
+int SetNUMDIGITS(int num)
 {
+	int count = 0;
+	while (num != 0) {
+		count++;
+		num /= 10;
+	}
+	return count;
+}
+
+void CInteger::ShowBitmap(int select, int num, int max, int nx, int ny)
+{
+	x = nx;
+	y = ny;
+	this->select = select;
 	GAME_ASSERT(isBmpLoaded, "CInteger: 請先執行LoadBitmap，然後才能ShowBitmap");
-	int nx;		// 待顯示位數的 x 座標
-	int MSB;	// 最左邊(含符號)的位數的數值
-	if (n >= 0) {
-		MSB = n;
-		nx = x+digit[0].Width()*(NUMDIGITS-1);
-	} else {
-		MSB = -n;
-		nx = x+digit[0].Width()*NUMDIGITS;
+
+	if (select == 1) {
+		won.SetTopLeft(x, y);
+		won.ShowBitmap();
+		x -= won.Width();
+		ShowMax(max);
+		slash.SetTopLeft(x, y);
+		slash.ShowBitmap();
+		x -= slash.Width();
+		ShowNum(num);
 	}
-	for (int i=0; i < NUMDIGITS; i++) {
-		int d = MSB % 10;
-		MSB /= 10;
-		digit[d].SetTopLeft(nx, y);
-		digit[d].ShowBitmap();
-		nx -= digit[d].Width();
+	if (select == 2)
+	{
+		ShowMax(max);
+		slash2.SetTopLeft(x, y);
+		slash2.ShowBitmap();
+		x -= slash2.Width();
+		ShowNum(num);
 	}
-	if (n < 0) { // 如果小於0，則顯示負號
-		digit[10].SetTopLeft(nx, y);
-		digit[10].ShowBitmap();
+	if (select == 3)
+	{
+		Lwon.SetTopLeft(x, y);
+		Lwon.ShowBitmap();
+		x -= Lwon.Width();
+		ShowNum(num);
+	}
+}
+
+void CInteger::ShowMax(int num)
+{
+	int temp = num;
+	for (int i = 0; i < SetNUMDIGITS(num); i++) {
+		int d = temp % 10;
+		temp /= 10;
+		if (select == 1)
+		{
+			digit[d].SetTopLeft(x, y);
+			digit[d].ShowBitmap();
+			x -= digit[d].Width();
+		}
+		if(select == 2)
+		{
+			base_digit[d].SetTopLeft(x, y);
+			base_digit[d].ShowBitmap();
+			x -= base_digit[i].Width();
+		}
+	}
+}
+
+void CInteger::ShowNum(int num)
+{
+	int temp = num;
+	for (int i = 0; i < SetNUMDIGITS(num); i++) {
+		int d = temp % 10;
+		temp /= 10;
+		if (select == 1)
+		{
+			digit[d].SetTopLeft(x, y);
+			digit[d].ShowBitmap();
+			x -= digit[d].Width();
+		}
+		if (select == 2)
+		{
+			base_digit[d].SetTopLeft(x, y);
+			base_digit[d].ShowBitmap();
+			x -= base_digit[d].Width();
+		}
+		if (select == 3)
+		{
+			upgrade_digit[d].SetTopLeft(x, y);
+			upgrade_digit[d].ShowBitmap();
+			x -= upgrade_digit[d].Width();
+		}
 	}
 }
 
@@ -365,6 +455,11 @@ void CMovingBitmap::LoadBitmap(char *filename, COLORREF color)
 	location.bottom = ny+bitmapSize.bmHeight;
 	SurfaceID = CDDraw::RegisterBitmap(filename, color);
 	isBitmapLoaded = true;
+}
+
+void CMovingBitmap::Setfloor(int _floor)
+{
+	floor = _floor;
 }
 
 void CMovingBitmap::SetTopLeft(int x, int y)
@@ -493,11 +588,12 @@ void CGameState::OnCycle() // Template Method
 CGame CGame::instance;
 
 CGame::CGame()
-: NUM_GAME_STATES(3)
+: NUM_GAME_STATES(4)
 {
 	running = true;
 	suspended = false;
 	gameStateTable[GAME_STATE_INIT] = new CGameStateInit(this);
+	gameStateTable[GAME_STATE_STAGE] = new CGameStateStage(this);
 	gameStateTable[GAME_STATE_RUN]  = new CGameStateRun(this);
 	gameStateTable[GAME_STATE_OVER] = new CGameStateOver(this);
 	gameState = NULL;
@@ -527,10 +623,6 @@ void CGame::OnDraw()
 		//
 		// 如果在暫停狀態，則顯示Ctrl-Q...
 		//
-		CMovingBitmap bmp;
-		bmp.LoadBitmap(IDB_CONTINUE);
-		bmp.SetTopLeft(0,0);
-		bmp.ShowBitmap();
 	}
 	CDDraw::BltBackToPrimary();				// 將 Back Plain 貼到螢幕
 }

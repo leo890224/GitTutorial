@@ -62,14 +62,6 @@ END
 // Bitmap
 //
 
-IDB_BALL                BITMAP                  "..\\res\\ball.bmp"
-
-IDB_ERASER1             BITMAP                  "..\\res\\eraser1.bmp"
-
-IDB_BACKGROUND          BITMAP                  "..\\res\\ntutcsie.bmp"
-
-IDB_CORNER              BITMAP                  "..\\res\\corner.bmp"
-
 IDB_0                   BITMAP                  "..\\res\\bmp0.bmp"
 
 IDB_1                   BITMAP                  "..\\res\\bmp1.bmp"
@@ -90,27 +82,7 @@ IDB_8                   BITMAP                  "..\\res\\bmp8.bmp"
 
 IDB_9                   BITMAP                  "..\\res\\bmp9.bmp"
 
-IDB_MINUS               BITMAP                  "..\\res\\bmp10.bmp"
-
-IDB_CENTER              BITMAP                  "..\\res\\center.bmp"
-
-IDB_ERASER2             BITMAP                  "..\\res\\eraser2.bmp"
-
-IDB_ERASER3             BITMAP                  "..\\res\\eraser3.bmp"
-
-IDB_CONTINUE            BITMAP                  "..\\res\\continue.bmp"
-
-IDB_HELP                BITMAP                  "..\\res\\help.bmp"
-
 IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
-
-Youtube                 BITMAP                  "..\\res\\bmp00001.bmp"
-
-Bell                    BITMAP                  "..\\RES\\bell.bmp"
-
-IDB_BLUE                BITMAP                  "..\\res\\bitmap3.bmp"
-
-IDB_GREEN               BITMAP                  "..\\res\\bitmap4.bmp"
 
 cat                     BITMAP                  "..\\RES\\cat.bmp"
 
@@ -140,7 +112,357 @@ dog_attack2             BITMAP                  "..\\RES\\dog_attack2.bmp"
 
 dog_attack3             BITMAP                  "..\\RES\\dog_attack3.bmp"
 
-IDB_MAP                 BITMAP                  "C:\\Users\\KANG\\Desktop\\dog war\\RES\\background.bmp"
+IDB_MAP                 BITMAP                  "..\\RES\\background.bmp"
+
+die2                    BITMAP                  "..\\RES\\die2.bmp"
+
+die3                    BITMAP                  "..\\RES\\die3.bmp"
+
+die4                    BITMAP                  "..\\RES\\die4.bmp"
+
+die1                    BITMAP                  "..\\RES\\die.bmp"
+
+cat_base                BITMAP                  "..\\RES\\cat_base.bmp"
+
+dog_base                BITMAP                  "..\\RES\\dog_base.bmp"
+
+basic_cat_btn           BITMAP                  "..\\RES\\basic_cat_btn.bmp"
+
+SLASH                   BITMAP                  "..\\RES\\slash.bmp"
+
+basic_cat_btn_dark      BITMAP                  "..\\RES\\basic_cat_btn_dark.bmp"
+
+WON                     BITMAP                  "..\\RES\\won.bmp"
+
+tank_cat                BITMAP                  "..\\RES\\tank_cat.bmp"
+
+tank_cat2               BITMAP                  "..\\RES\\tank_cat2.bmp"
+
+tank_cat3               BITMAP                  "..\\RES\\tank_cat3.bmp"
+
+tank_cat_attack         BITMAP                  "..\\RES\\tank_cat_attack.bmp"
+
+tank_cat_attack2        BITMAP                  "..\\RES\\tank_cat_attack2.bmp"
+
+tank_cat_attack3        BITMAP                  "..\\RES\\tank_cat_attack3.bmp"
+
+tank_cat_btn            BITMAP                  "..\\RES\\tank_cat_btn.bmp"
+
+tank_cat_attack4        BITMAP                  "..\\RES\\tank_cat_attack4.bmp"
+
+tank_cat_punch          BITMAP                  "..\\RES\\tank_cat_punch.bmp"
+
+tank_cat_btn_dark       BITMAP                  "..\\RES\\tank_cat_btn_dark.bmp"
+
+zero                    BITMAP                  "..\\RES\\zero.bmp"
+
+one                     BITMAP                  "..\\RES\\one.bmp"
+
+two                     BITMAP                  "..\\RES\\two.bmp"
+
+three                   BITMAP                  "..\\RES\\three.bmp"
+
+four                    BITMAP                  "..\\RES\\four.bmp"
+
+five                    BITMAP                  "..\\RES\\five.bmp"
+
+six                     BITMAP                  "..\\RES\\six.bmp"
+
+seven                   BITMAP                  "..\\RES\\seven.bmp"
+
+eight                   BITMAP                  "..\\RES\\eight.bmp"
+
+nine                    BITMAP                  "..\\RES\\nine.bmp"
+
+SLASH2                  BITMAP                  "..\\RES\\slash2.bmp"
+
+L0                      BITMAP                  "..\\RES\\L0.bmp"
+
+L1                      BITMAP                  "..\\RES\\L1.bmp"
+
+L2                      BITMAP                  "..\\RES\\L2.bmp"
+
+L3                      BITMAP                  "..\\RES\\L3.bmp"
+
+L4                      BITMAP                  "..\\RES\\L4.bmp"
+
+L5                      BITMAP                  "..\\RES\\L5.bmp"
+
+L6                      BITMAP                  "..\\RES\\L6.bmp"
+
+L7                      BITMAP                  "..\\RES\\L7.bmp"
+
+L8                      BITMAP                  "..\\RES\\L8.bmp"
+
+L9                      BITMAP                  "..\\RES\\L9.bmp"
+
+LW                      BITMAP                  "..\\RES\\LW.bmp"
+
+level1                  BITMAP                  "..\\RES\\level1.bmp"
+
+level1_2                BITMAP                  "..\\RES\\level1_2.bmp"
+
+level1_dark             BITMAP                  "..\\RES\\level1_dark.bmp"
+
+level2                  BITMAP                  "..\\RES\\level2.bmp"
+
+level2_2                BITMAP                  "..\\RES\\level2_2.bmp"
+
+level2_dark             BITMAP                  "..\\RES\\level2_dark.bmp"
+
+level3                  BITMAP                  "..\\RES\\level3.bmp"
+
+level3_2                BITMAP                  "..\\RES\\level3_2.bmp"
+
+level3_dark             BITMAP                  "..\\RES\\level3_dark.bmp"
+
+level4                  BITMAP                  "..\\RES\\level4.bmp"
+
+level4_2                BITMAP                  "..\\RES\\level4_2.bmp"
+
+level4_dark             BITMAP                  "..\\RES\\level4_dark.bmp"
+
+level5                  BITMAP                  "..\\RES\\level5.bmp"
+
+level5_2                BITMAP                  "..\\RES\\level5_2.bmp"
+
+level5_dark             BITMAP                  "..\\RES\\level5_dark.bmp"
+
+level6                  BITMAP                  "..\\RES\\level6.bmp"
+
+level6_2                BITMAP                  "..\\RES\\level6_2.bmp"
+
+level6_dark             BITMAP                  "..\\RES\\level6_dark.bmp"
+
+level7                  BITMAP                  "..\\RES\\level7.bmp"
+
+level7_2                BITMAP                  "..\\RES\\level7_2.bmp"
+
+level7_dark             BITMAP                  "..\\RES\\level7_dark.bmp"
+
+level8                  BITMAP                  "..\\RES\\level8.bmp"
+
+Start                   BITMAP                  "..\\RES\\start.bmp"
+
+long_leg_cat_btn        BITMAP                  "..\\RES\\long_leg_cat_btn.bmp"
+
+long_leg_cat_btn_dark   BITMAP                  "..\\RES\\long_leg_cat_btn_dark.bmp"
+
+long_leg_cat            BITMAP                  "..\\RES\\long_leg_cat.bmp"
+
+long_leg_cat2           BITMAP                  "..\\RES\\long_leg_cat2 .bmp"
+
+long_leg_cat3           BITMAP                  "..\\RES\\long_leg_cat3 .bmp"
+
+long_leg_cat4           BITMAP                  "..\\RES\\long_leg_cat4.bmp"
+
+long_leg_cat5           BITMAP                  "..\\RES\\long_leg_cat5.bmp"
+
+long_leg_cat6           BITMAP                  "..\\RES\\long_leg_cat6 .bmp"
+
+long_leg_cat_attack     BITMAP                  "..\\RES\\long_leg_cat_attack.bmp"
+
+long_leg_cat_attack2    BITMAP                  "..\\RES\\long_leg_cat_attack2.bmp"
+
+long_leg_cat_attack3    BITMAP                  "..\\RES\\long_leg_cat_attack3.bmp"
+
+long_leg_cat_attack4    BITMAP                  "..\\RES\\long_leg__cat_attack4.bmp"
+
+long_leg_cat_punch      BITMAP                  "..\\RES\\long_leg_cat_punch.bmp"
+
+long_leg_cat_attack1    BITMAP                  "..\\RES\\long_leg_cat_attack1.bmp"
+
+battle_cat              BITMAP                  "..\\RES\\battle_cat.bmp"
+
+battle_cat2             BITMAP                  "..\\RES\\battle_cat2.bmp"
+
+battle_cat3             BITMAP                  "..\\RES\\battle_cat3.bmp"
+
+battle_cat_attack       BITMAP                  "..\\RES\\battle_cat_attack.bmp"
+
+battle_cat_attack2      BITMAP                  "..\\RES\\battle_cat_attack2.bmp"
+
+battle_cat_attack3      BITMAP                  "..\\RES\\battle_cat_attack3.bmp"
+
+battle_cat_attack4      BITMAP                  "..\\RES\\battle_cat_attack4.bmp"
+
+battle_cat_punch        BITMAP                  "..\\RES\\battle_cat_punch.bmp"
+
+battle_cat_btn          BITMAP                  "..\\RES\\battle_cat_btn.bmp"
+
+battle_cat_btn_dark     BITMAP                  "..\\RES\\battle_cat_btn_dark.bmp"
+
+world_map               BITMAP                  "..\\RES\\world_map.bmp"
+
+start_btn               BITMAP                  "..\\RES\\start_btn.bmp"
+
+start_btn2              BITMAP                  "..\\RES\\start_btn2.bmp"
+
+start_btn3              BITMAP                  "..\\RES\\start_btn3.bmp"
+
+start_btn4              BITMAP                  "..\\RES\\start_btn4.bmp"
+
+return_btn              BITMAP                  "..\\RES\\return_btn.bmp"
+
+return_btn2             BITMAP                  "..\\RES\\return_btn2.bmp"
+
+return_btn3             BITMAP                  "..\\RES\\return_btn3.bmp"
+
+return_btn4             BITMAP                  "..\\RES\\return_btn4.bmp"
+
+return_btn5             BITMAP                  "..\\RES\\return_btn5.bmp"
+
+start_btn5              BITMAP                  "..\\RES\\start_btn5.bmp"
+
+God_cat                 BITMAP                  "..\\RES\\God_cat.bmp"
+
+God_cat_01              BITMAP                  "..\\RES\\God_cat 01.bmp"
+
+God_cat_02              BITMAP                  "..\\RES\\God_cat 02.bmp"
+
+God_cat_03              BITMAP                  "..\\RES\\God_cat 03.bmp"
+
+God_cat_04              BITMAP                  "..\\RES\\God_cat 04.bmp"
+
+God_cat_05              BITMAP                  "..\\RES\\God_cat 05.bmp"
+
+God_cat_06              BITMAP                  "..\\RES\\God_cat 06.bmp"
+
+God_cat_07              BITMAP                  "..\\RES\\God_cat 07.bmp"
+
+God_cat_08              BITMAP                  "..\\RES\\God_cat 08.bmp"
+
+God_cat_09              BITMAP                  "..\\RES\\God_cat 09.bmp"
+
+God_cat_10              BITMAP                  "..\\RES\\God_cat 10.bmp"
+
+God_cat_11              BITMAP                  "..\\RES\\God_cat 11.bmp"
+
+God_cat_12              BITMAP                  "..\\RES\\God_cat 12.bmp"
+
+God_cat_13              BITMAP                  "..\\RES\\God_cat 13.bmp"
+
+God_cat_14              BITMAP                  "..\\RES\\God_cat 14.bmp"
+
+God_cat_15              BITMAP                  "..\\RES\\God_cat 15.bmp"
+
+God_cat_16              BITMAP                  "..\\RES\\God_cat 16.bmp"
+
+God_cat_17              BITMAP                  "..\\RES\\God_cat 17.bmp"
+
+God_cat_18              BITMAP                  "..\\RES\\God_cat 18.bmp"
+
+God_cat_19              BITMAP                  "..\\RES\\God_cat 19.bmp"
+
+God_cat_20              BITMAP                  "..\\RES\\God_cat 20.bmp"
+
+God_cat_21              BITMAP                  "..\\RES\\God_cat 21.bmp"
+
+God_cat_22              BITMAP                  "..\\RES\\God_cat 22.bmp"
+
+God_cat_23              BITMAP                  "..\\RES\\God_cat 23.bmp"
+
+God_cat_24              BITMAP                  "..\\RES\\God_cat 24.bmp"
+
+God_cat_25              BITMAP                  "..\\RES\\God_cat 25.bmp"
+
+God_cat_26              BITMAP                  "..\\RES\\God_cat 26.bmp"
+
+God_cat_27              BITMAP                  "..\\RES\\God_cat 27.bmp"
+
+God_cat_28              BITMAP                  "..\\RES\\God_cat 28.bmp"
+
+God_cat_29              BITMAP                  "..\\RES\\God_cat 29.bmp"
+
+God_cat_30              BITMAP                  "..\\RES\\God_cat 30.bmp"
+
+God_cat_31              BITMAP                  "..\\RES\\God_cat 31.bmp"
+
+God_cat_32              BITMAP                  "..\\RES\\God_cat 32.bmp"
+
+God_cat_33              BITMAP                  "..\\RES\\God_cat 33.bmp"
+
+God_cat_34              BITMAP                  "..\\RES\\God_cat 34.bmp"
+
+God_cat_35              BITMAP                  "..\\RES\\God_cat 35.bmp"
+
+God_cat_36              BITMAP                  "..\\RES\\God_cat 36.bmp"
+
+God_cat_37              BITMAP                  "..\\RES\\God_cat 37.bmp"
+
+God_cat_38              BITMAP                  "..\\RES\\God_cat 38.bmp"
+
+God_cat_39              BITMAP                  "..\\RES\\God_cat 39.bmp"
+
+God_cat_40              BITMAP                  "..\\RES\\God_cat 40.bmp"
+
+God_cat_41              BITMAP                  "..\\RES\\God_cat 41.bmp"
+
+God_cat_42              BITMAP                  "..\\RES\\God_cat 42.bmp"
+
+God_cat_43              BITMAP                  "..\\RES\\God_cat 43.bmp"
+
+God_cat_44              BITMAP                  "..\\RES\\God_cat 44.bmp"
+
+God_power               BITMAP                  "..\\RES\\God_power.bmp"
+
+God_choose              BITMAP                  "..\\RES\\GodR.bmp"
+
+God_left                BITMAP                  "..\\RES\\GodL.bmp"
+
+God_leftM               BITMAP                  "..\\RES\\GodLM.bmp"
+
+BlingL                  BITMAP                  "..\\RES\\blingL.bmp"
+
+BlingL_01               BITMAP                  "..\\RES\\blingL1.bmp"
+
+BlingL_02               BITMAP                  "..\\RES\\blingL2.bmp"
+
+BlingL_03               BITMAP                  "..\\RES\\blingL3.bmp"
+
+BlingL_04               BITMAP                  "..\\RES\\blingL4.bmp"
+
+BlingL_05               BITMAP                  "..\\RES\\blingL5.bmp"
+
+BlingL_06               BITMAP                  "..\\RES\\blingL6.bmp"
+
+BlingL_07               BITMAP                  "..\\RES\\blingL7.bmp"
+
+BlingL_08               BITMAP                  "..\\RES\\blingL8.bmp"
+
+BlingL_09               BITMAP                  "..\\RES\\blingL9.bmp"
+
+BlingL_10               BITMAP                  "..\\RES\\blingL10.bmp"
+
+BlingL_11               BITMAP                  "..\\RES\\blingL11.bmp"
+
+BlingL_12               BITMAP                  "..\\RES\\blingL12.bmp"
+
+BlingL_13               BITMAP                  "..\\RES\\blingL13.bmp"
+
+BlingL_14               BITMAP                  "..\\RES\\blingL14.bmp"
+
+BlingL_15               BITMAP                  "..\\RES\\blingL15.bmp"
+
+BlingL_16               BITMAP                  "..\\RES\\blingL16.bmp"
+
+BlingL_17               BITMAP                  "..\\RES\\blingL17.bmp"
+
+BlingL_18               BITMAP                  "..\\RES\\blingL18.bmp"
+
+BlingL_19               BITMAP                  "..\\RES\\blingL19.bmp"
+
+BlingL_20               BITMAP                  "..\\RES\\blingL20.bmp"
+
+BlingL_21               BITMAP                  "..\\RES\\blingL21.bmp"
+
+BlingL_22               BITMAP                  "..\\RES\\blingL22.bmp"
+
+BlingL_23               BITMAP                  "..\\RES\\blingL23.bmp"
+
+BlingL_24               BITMAP                  "..\\RES\\blingL24.bmp"
+
+BlingL_25               BITMAP                  "..\\RES\\blingL25.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -177,8 +499,6 @@ IDR_MAINFRAME           BITMAP                  "..\\res\\Toolbar.bmp"
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "..\\res\\game.ico"
-
-IDR_GAMETYPE            ICON                    "..\\res\\gameDoc.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////

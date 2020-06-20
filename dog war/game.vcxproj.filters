@@ -16,16 +16,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Res\ball.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="RES\bmp0.bmp">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="RES\bmp1.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp10.bmp">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="RES\bmp2.bmp">
@@ -52,24 +46,6 @@
     <None Include="RES\bmp9.bmp">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="RES\center.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\continue.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Res\corner.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\eraser1.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\eraser2.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\eraser3.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="res\game.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -82,13 +58,7 @@
     <None Include="res\gameDoc.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="RES\help.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="RES\loading.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\ntutcsie.bmp">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="res\Toolbar.bmp">
@@ -120,19 +90,58 @@
     <ClCompile Include="Source\mygame.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CEraser.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CBall.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CBouncingBall.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Dog.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
     <ClCompile Include="Source\Background.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cat.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CatBase.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Basic_Cat.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Basic_Dog.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DogBase.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Button.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Basic_Cat_Btn.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DogComputer.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tank_Cat.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tank_Cat_Btn.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Upgrade_Btn.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Long_Leg_Cat.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Long_Leg_Cat_Btn.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Battle_Cat.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Battle_Cat_Btn.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\God_Cat_Btn.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,19 +173,58 @@
     <ClInclude Include="Source\mygame.h">
       <Filter>MyGame</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CEraser.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CBall.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CBouncingBall.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Dog.h">
       <Filter>MyGame</Filter>
     </ClInclude>
     <ClInclude Include="Source\Background.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cat.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CatBase.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Basic_Cat.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Basic_Dog.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DogBase.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Button.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Basic_Cat_Btn.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DogComputer.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tank_Cat.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tank_Cat_Btn.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Upgrade_Btn.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Long_Leg_Cat.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Long_Leg_Cat_Btn.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Battle_Cat.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Battle_Cat_Btn.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\God_Cat_Btn.h">
       <Filter>MyGame</Filter>
     </ClInclude>
   </ItemGroup>
@@ -186,28 +234,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\bitmap3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\bmp00001.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\bitmap4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\123\game4.10\RES\bell.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="RES\background.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="RES\bell.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="RES\cat.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\bmp00002.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="RES\cat2.bmp">
@@ -234,16 +264,10 @@
     <Image Include="RES\dog2.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\bitmap5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="RES\dog3.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="RES\dog_punch.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="RES\dog_attack.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="RES\dog_attack2.bmp">
@@ -252,7 +276,595 @@
     <Image Include="RES\dog_attack3.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="RES\map.bmp">
+    <Image Include="RES\cat_die.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\cat_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\cat_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\cat_die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\die.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\cat_base.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dog_base.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="F:\dog war\RES\dog_attack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\basic_dog_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\basic_cat_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\slash.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\basic_cat_btn_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\won.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dog_attack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat_attack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat_attack2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat_attack3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat_attack4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat_punch.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Documents\oopcourse821\dog war\RES\tank_cat_btn_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat_attack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat_attack2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat_attack3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat_attack4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat_punch.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\tank_cat_btn_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\zero.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\one.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\two.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\three.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\four.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\five.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\six.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\seven.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\eight.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\nine.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\slash2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L8.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\LW.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level1_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level1_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level2_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level2_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level3_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level3_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level4_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level4_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level5_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level5_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level6_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level6_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level7_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level7_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\level8.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\start.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat_btn_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat2 .bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat3 .bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat6 .bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat_attack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat_attack2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat_attack3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg__cat_attack4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat_punch.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\long_leg_cat_attack1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat_attack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat_attack2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat_attack3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat_attack4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat_punch.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_cat_btn_dark.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\world_map.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\start_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\start_btn2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\start_btn3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\start_btn4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\back_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\back_btn2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\back_btn3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\back_btn4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\return_btn5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\return_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\return_btn2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\return_btn3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\return_btn4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\start_btn5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 01.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 02.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 03.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 04.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 05.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 06.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 07.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 08.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 09.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 10.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 11.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 12.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 13.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 14.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 15.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 16.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 17.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 18.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 19.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 20.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 21.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 22.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 23.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 24.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 25.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 26.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 27.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 28.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 29.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 30.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 31.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 32.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 33.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 34.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 35.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 36.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 37.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 38.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 39.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 40.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 41.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 42.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 43.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_cat 44.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\God_power.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\GodR.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\GodL.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\GodLM.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\halo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL8.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL10.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL11.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL12.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL13.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL14.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL15.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL16.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL17.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL18.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL19.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL20.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL21.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL22.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL23.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL24.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\blingL25.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

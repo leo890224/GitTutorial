@@ -26,7 +26,7 @@
  *         demonstrate the use of states.
  *      2. Demo the use of CInteger in CGameStateRun.
  *   2005-09-13
- *      Rewrite the codes for CBall and CEraser.
+ *      Rewrite the codes for CBall and Cat.
  *   2005-09-20 V4.2Beta1.
  *   2005-09-29 V4.2Beta2.
  *      1. Add codes to display IDC_GAMECURSOR in GameStateRun.
@@ -55,9 +55,11 @@
 #include "Resource.h"
 #include <mmsystem.h>
 #include <ddraw.h>
+#include <vector>
 #include "audio.h"
 #include "gamelib.h"
 #include "mygame.h"
+#include "Background.h"
 
 namespace game_framework
 {
@@ -80,7 +82,15 @@ void CGameStateInit::OnInit()
     //
     // 開始載入資料
     //
-    logo.LoadBitmap(IDB_BACKGROUND);
+    background.LoadBitmap(Start);
+    start_init.LoadBitmap(start_btn);
+    start_flash.AddBitmap(start_btn2);
+    start_flash.AddBitmap(start_btn3);
+    start_press.AddBitmap(start_btn4);
+    start_press.AddBitmap(start_btn5);
+    start_press.AddBitmap(start_btn);
+    start_press.AddBitmap(start_btn);
+    isPress = unPress = false;
     Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
     //
     // 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
@@ -89,11 +99,12 @@ void CGameStateInit::OnInit()
 
 void CGameStateInit::OnBeginState()
 {
+    isPress = unPress = false;
 }
 
 void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-    const char KEY_ESC = 27;
+    /*const char KEY_ESC = 27;
     const char KEY_SPACE = ' ';
 
     if (nChar == KEY_SPACE)
@@ -102,13 +113,37 @@ void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
         GotoGameState(GAME_STATE_RUN);						// 切換至GAME_STATE_RUN
     }
     else if (nChar == KEY_ESC)								// Demo 關閉遊戲的方法
-        PostMessage(AfxGetMainWnd()->m_hWnd, WM_CLOSE, 0, 0);	// 關閉遊戲
+        PostMessage(AfxGetMainWnd()->m_hWnd, WM_CLOSE, 0, 0);	// 關閉遊戲*/
 }
 
 void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)
 {
-    CAudio::Instance()->Stop(AUDIO_MENU);
-    GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+    if (point.x >= 177 && point.x <= 461 && point.y >= 266 && point.y <= 320)
+    {
+        isPress = true;
+    }
+}
+
+void CGameStateInit::OnLButtonUp(UINT nFlags, CPoint point)
+{
+    if (point.x >= 177 && point.x <= 461 && point.y >= 266 && point.y <= 320)
+    {
+        isPress = false;
+        unPress = true;
+    }
+}
+
+void CGameStateInit::OnMove()
+{
+    if (isPress)
+    {
+        start_flash.OnMove();
+    }
+
+    if (unPress)
+    {
+        start_press.OnMove();
+    }
 }
 
 void CGameStateInit::OnShow()
@@ -116,12 +151,37 @@ void CGameStateInit::OnShow()
     //
     // 貼上logo
     //
-    logo.SetTopLeft((SIZE_X - logo.Width()) / 2, SIZE_Y / 8);
-    logo.ShowBitmap();
+    background.SetTopLeft(0, 0);
+    background.ShowBitmap();
+
+    if (isPress)
+    {
+        start_flash.SetTopLeft(162, 263);
+        start_flash.OnShow();
+    }
+    else if (unPress)
+    {
+        start_press.SetTopLeft(162, 263);
+        start_press.OnShow();
+
+        if (start_press.IsFinalBitmap())
+        {
+            unPress = false;
+            start_press.Reset();
+            CAudio::Instance()->Stop(AUDIO_MENU);
+            GotoGameState(GAME_STATE_RUN);
+        }
+    }
+    else
+    {
+        start_init.SetTopLeft(162, 263);
+        start_init.ShowBitmap();
+    }
+
     //
     // Demo螢幕字型的使用，不過開發時請盡量避免直接使用字型，改用CMovingBitmap比較好
     //
-    CDC* pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC
+    /*CDC* pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC
     CFont f, *fp;
     f.CreatePointFont(160, "Times New Roman");	// 產生 font f; 160表示16 point的字
     fp = pDC->SelectObject(&f);					// 選用 font f
@@ -135,7 +195,89 @@ void CGameStateInit::OnShow()
 
     pDC->TextOut(5, 455, "Press Alt-F4 or ESC to Quit.");
     pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
-    CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
+    CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC*/
+}
+
+CGameStateStage::CGameStateStage(CGame* g) : CGameState(g)
+{
+}
+
+void CGameStateStage::OnInit()
+{
+    ShowInitProgress(25);	// 一開始的loading進度為0%
+    world.LoadBitmap(world_map);
+    return_init.LoadBitmap(return_btn, RGB(255, 255, 255));
+    return_flash.AddBitmap(return_btn2, RGB(255, 255, 255));
+    return_flash.AddBitmap(return_btn3, RGB(255, 255, 255));
+    return_press.AddBitmap(return_btn4, RGB(255, 255, 255));
+    return_press.AddBitmap(return_btn5, RGB(255, 255, 255));
+    return_press.AddBitmap(return_btn, RGB(255, 255, 255));
+    return_press.AddBitmap(return_btn, RGB(255, 255, 255));
+    Sleep(300);
+}
+
+void CGameStateStage::OnBeginState()
+{
+    isPress = unPress = false;
+}
+
+void CGameStateStage::OnLButtonDown(UINT nFlags, CPoint point)
+{
+    if (point.x <= 77 && point.y >= 405)
+    {
+        isPress = true;
+    }
+}
+
+void CGameStateStage::OnLButtonUp(UINT nFlags, CPoint point)
+{
+    if (point.x <= 77 && point.y >= 405)
+    {
+        isPress = false;
+        unPress = true;
+    }
+}
+
+void CGameStateStage::OnMove()
+{
+    if (isPress)
+    {
+        return_flash.OnMove();
+    }
+
+    if (unPress)
+    {
+        return_press.OnMove();
+    }
+}
+
+void CGameStateStage::OnShow()
+{
+    world.SetTopLeft(0, 0);
+    world.ShowBitmap();
+
+    if (isPress)
+    {
+        return_flash.SetTopLeft(0, 405);
+        return_flash.OnShow();
+    }
+    else if (unPress)
+    {
+        return_press.SetTopLeft(0, 405);
+        return_press.OnShow();
+
+        if (return_press.IsFinalBitmap())
+        {
+            unPress = false;
+            return_press.Reset();
+            GotoGameState(GAME_STATE_INIT);
+        }
+    }
+    else
+    {
+        return_init.SetTopLeft(0, 405);
+        return_init.ShowBitmap();
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -152,7 +294,10 @@ void CGameStateOver::OnMove()
     counter--;
 
     if (counter < 0)
+    {
+        CAudio::Instance()->Play(AUDIO_MENU);
         GotoGameState(GAME_STATE_INIT);
+    }
 }
 
 void CGameStateOver::OnBeginState()
@@ -166,7 +311,7 @@ void CGameStateOver::OnInit()
     // 當圖很多時，OnInit載入所有的圖要花很多時間。為避免玩遊戲的人
     //     等的不耐煩，遊戲會出現「Loading ...」，顯示Loading的進度。
     //
-    ShowInitProgress(66);	// 接個前一個狀態的進度，此處進度視為66%
+    ShowInitProgress(75);	// 接個前一個狀態的進度，此處進度視為66%
     //
     // 開始載入資料
     //
@@ -197,115 +342,117 @@ void CGameStateOver::OnShow()
 // 這個class為遊戲的遊戲執行物件，主要的遊戲程式都在這裡
 /////////////////////////////////////////////////////////////////////////////
 
-CGameStateRun::CGameStateRun(CGame* g)
-    : CGameState(g)//, NUMBALLS(28)
+CGameStateRun::CGameStateRun(CGame* g) : CGameState(g)//, NUMBALLS(28)
 {
     //ball = new CBall [NUMBALLS];
     //picX = picY = 0;
 }
 
-/*CGameStateRun::~CGameStateRun()
+CGameStateRun::~CGameStateRun()
 {
-    //delete [] ball;
-}*/
+}
+
 
 void CGameStateRun::OnBeginState()
 {
-    const int BALL_GAP = 90;
-    const int BALL_XY_OFFSET = 45;
-    const int BALL_PER_ROW = 7;
-    //const int HITS_LEFT = 10;
-    const int HITS_LEFT_X = 590;
-    const int HITS_LEFT_Y = 0;
-    const int BACKGROUND_X = 60;
-    const int ANIMATION_SPEED = 15;
-    /*for (int i = 0; i < NUMBALLS; i++)  				// 設定球的起始座標
+    money = 0;
+    max_money = 1000;
+    addspeed = 1;
+    upgrade_money = 200;
+    wallet_level = 1;
+
+    for (int i = 0; i < (int)Cats.size(); i++)
     {
-        int x_pos = i % BALL_PER_ROW;
-        int y_pos = i / BALL_PER_ROW;
-        ball[i].SetXY(x_pos * BALL_GAP + BALL_XY_OFFSET, y_pos * BALL_GAP + BALL_XY_OFFSET);
-        ball[i].SetDelay(x_pos);
-        ball[i].SetIsAlive(true);
-    }*/
-    basic_cat.Initialize();
-	basic_dog.Initialize();
-    //background.SetTopLeft(BACKGROUND_X, 0);				// 設定背景的起始座標
-    //help.SetTopLeft(0, SIZE_Y - help.Height());			// 設定說明圖的起始座標
-    //hits_left.SetInteger(HITS_LEFT);					// 指定剩下的撞擊數
-    //hits_left.SetTopLeft(HITS_LEFT_X, HITS_LEFT_Y);		// 指定剩下撞擊數的座標
-    //CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
-    //CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
-    CAudio::Instance()->Play(AUDIO_BATTLE, true);			// 撥放 MIDI
+        delete Cats[i];
+    }
+
+    Cats.clear();
+
+    for (vector<Dog*>::iterator iter = Dogs.GetEnemy()->begin(); iter != Dogs.GetEnemy()->end();)
+    {
+        iter = Dogs.GetEnemy()->erase(iter);
+    }
+
+    Cats.push_back(new CatBase);
+    Cats[0]->LoadBitmap();
+    Dogs.LoadEnemy(1);
+    CAudio::Instance()->Play(AUDIO_BATTLE);			// 撥放 MIDI
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
-    //
-    // 如果希望修改cursor的樣式，則將下面程式的commment取消即可
-    //
-    // SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
-    //
-    // 移動背景圖的座標
-    //
-    /*if (background.Top() > SIZE_Y)
-        background.SetTopLeft(60, -background.Height());
-
-    background.SetTopLeft(background.Left(), background.Top() + 1);
-    //
-    // 移動球
-    //
-    /*int i;
-    for (i = 0; i < NUMBALLS; i++)
-        ball[i].OnMove();
-    //
-    // 移動擦子
-    //*/
-    basic_cat.OnMove();
-	basic_dog.OnMove();
-	map.OnMove();
-    /*practice.SetTopLeft(10, 10);
-    if (picX <= SIZE_Y)
+    for (int i = 0; i < (int)Buttons.size(); i++)
     {
-        picX += 5;
-        picY += 5;
+        Buttons[i]->SetMoney(money);
+        Buttons[i]->OnMove();
     }
-    else
+
+    for (int i = 0; i < (int)Cats.size(); i++)
     {
-        picX = picY = 0;
+        vector<Dog*>::iterator iter = Dogs.GetEnemy()->begin();
+        Cats[i]->OnMove();
+        int index_dog = FindEnemy_dog(Cats[i]->GetX1(), Cats[i]->GetX2());                                       //------------------------------------------------------找敵人
+        Cats[i]->SetAttack(Cats[i]->MeetDog(*(iter + index_dog)));
     }
-    practice.SetTopLeft(picX, picY);
-    practice2.SetTopLeft(picX + 45, picY + 60);
-    c_practice.OnMove();
-    //gamemap.OnMove();*/
 
-    /////////////////////////////////////////////////////////
-    // 判斷擦子是否碰到球
-    /////////////////////////////////////////////////////////
+    for (vector<Dog*>::iterator iter = Dogs.GetEnemy()->begin(); iter != Dogs.GetEnemy()->end(); iter++)
+    {
+        (*iter)->OnMove();
+        int index_cat = FindEnemy_cat((*iter)->GetX1(), (*iter)->GetX2());                                       //-------------------------------------------------------找敵人
+        (*iter)->SetAttack((*iter)->MeetCat(Cats[index_cat]));
+    }
 
-	basic_cat.SetAttack(basic_cat.MeetDog(&basic_dog));
-	basic_dog.SetAttack(basic_dog.MeetCat(&basic_cat));
-
-    /*for (i = 0; i < NUMBALLS; i++)-----------------------------------------------------------------------------------------------
-        if (ball[i].IsAlive() && ball[i].HitEraser(&basic_cat))
+    for (int i = 0; i < (int)Cats.size(); i++)
+    {
+        if (Cats[i]->GetY2() < 10)
         {
-            ball[i].SetIsAlive(false);
-            //CAudio::Instance()->Play(AUDIO_DING);
-            hits_left.Add(-1);
+            delete Cats[i];
+            Cats.erase(Cats.begin() + i);
+        }
+    }
 
-            //
-            // 若剩餘碰撞次數為0，則跳到Game Over狀態
-            //
-            if (hits_left.GetInteger() <= 0)
-            {
-                //CAudio::Instance()->Stop(AUDIO_LAKE);	// 停止 WAVE
-                //CAudio::Instance()->Stop(AUDIO_NTUT);	// 停止 MIDI
-                GotoGameState(GAME_STATE_OVER);
-            }-----------------------------------------------------------------------------------------------------------------------
-        }*/
-    //
-    // 移動彈跳的球
-    //
-    //bball.OnMove();
+    for (vector<Dog*>::iterator iter = Dogs.GetEnemy()->begin(); iter != Dogs.GetEnemy()->end();)
+    {
+        if ((*iter)->GetY2() < 10)
+        {
+            money += (*iter)->GetMoney();
+
+            if (money > max_money) money = max_money;
+
+            iter = Dogs.GetEnemy()->erase(iter);
+        }
+        else
+        {
+            iter++;
+        }
+    }
+
+    if (money < max_money)
+    {
+        counter++;
+
+        if (counter > 1)
+        {
+            money += addspeed;
+            Number.SetInteger(money);
+            counter = 0;
+        }
+    }
+
+    map.OnMove();
+    upgrade_btn.SetMoney(money);
+    upgrade_btn.SetLevel(wallet_level);
+    upgrade_btn.SetUpgradeMoney(upgrade_money);
+    upgrade_btn.OnMove();
+    god_cat_btn.OnMove();
+    //god_cat_btn.Cure();
+    Dogs.CallEnemy();
+
+    if ((*Dogs.GetEnemy()->begin())->GetBlood() <= 0 || Cats[0]->GetBlood() <= 0)
+    {
+        CAudio::Instance()->Stop(AUDIO_BATTLE);
+        GotoGameState(GAME_STATE_OVER);
+    }
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -314,37 +461,35 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
     // 當圖很多時，OnInit載入所有的圖要花很多時間。為避免玩遊戲的人
     //     等的不耐煩，遊戲會出現「Loading ...」，顯示Loading的進度。
     //
-    ShowInitProgress(33);	// 接個前一個狀態的進度，此處進度視為33%
+    ShowInitProgress(50);	// 接個前一個狀態的進度，此處進度視為33%
     //
     // 開始載入資料
     //
-    /*int i;
-    for (i = 0; i < NUMBALLS; i++)
-        ball[i].LoadBitmap();								// 載入第i個球的圖形*/
-	map.LoadBitmap();
-    basic_cat.LoadBitmap();
-	basic_dog.LoadBitmap();
-    //background.LoadBitmap(IDB_BACKGROUND);					// 載入背景的圖形
+    map.LoadBitmap();
+    upgrade_btn.LoadBitmap();
+    god_cat_btn.LoadBitmap();
+    Buttons.push_back(new Basic_Cat_Btn);
+    Buttons.push_back(new Tank_Cat_Btn);
+    Buttons.push_back(new Long_Leg_Cat_Btn);
+    Buttons.push_back(new Battle_Cat_Btn);
+    Cats.push_back(new CatBase);
+
+    for (int i = 0; i < (int)Buttons.size(); i++)
+        Buttons[i]->LoadBitmap();
+
+    Cats[0]->LoadBitmap();
+    Dogs.LoadEnemy(1);
     //
     // 完成部分Loading動作，提高進度
     //
-    ShowInitProgress(50);
     Sleep(300); // 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
     //
     // 繼續載入其他資料
     //
-    //gamemap.LoadBitmap();
-    //practice.LoadBitmap(Youtube);
-    //practice2.LoadBitmap("Bitmaps/Cursor.bmp", RGB(255, 255, 255));
-    //c_practice.LoadBitmap();
-    //help.LoadBitmap(IDB_HELP, RGB(255, 255, 255));				// 載入說明的圖形
-    //corner.LoadBitmap(IDB_CORNER);							// 載入角落圖形
-    //corner.ShowBitmap(background);							// 將corner貼到background
-    //bball.LoadBitmap();										// 載入圖形
-    //hits_left.LoadBitmap();
-    //CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav
-    CAudio::Instance()->Load(AUDIO_MENU,  "sounds\\menu.mp3");	// 載入編號1的聲音lake.mp3
-    CAudio::Instance()->Load(AUDIO_BATTLE,  "sounds\\battle.mp3");	// 載入編號2的聲音ntut.mid
+    Number.LoadBitmap();
+    CAudio::Instance()->Load(AUDIO_MENU, "sounds\\menu.mp3");	// 載入編號1的聲音lake.mp3
+    CAudio::Instance()->Load(AUDIO_BATTLE, "sounds\\battle.mp3");	// 載入編號2的聲音ntut.mid
+    CAudio::Instance()->Load(AUDIO_GOD, "sounds\\God.mp3");
     //
     // 此OnInit動作會接到CGameStaterOver::OnInit()，所以進度還沒到100%
     //
@@ -352,72 +497,169 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-    const char KEY_LEFT  = 0x25; // keyboard左箭頭
-    const char KEY_UP    = 0x26; // keyboard上箭頭
+    const char KEY_LEFT = 0x25; // keyboard左箭頭
+    const char KEY_UP = 0x26; // keyboard上箭頭
     const char KEY_RIGHT = 0x27; // keyboard右箭頭
-    const char KEY_DOWN  = 0x28; // keyboard下箭頭
+    const char KEY_DOWN = 0x28; // keyboard下箭頭
+    const char KEY_Z = 0x5A;
+    const char KEY_X = 0x58;
 
-	if (nChar == KEY_LEFT)
-	{
-		basic_cat.SetMovingLeft(true);
-		basic_dog.SetMovingLeft(true);
-	}
-    
-	if (nChar == KEY_RIGHT)
-	{
-		basic_cat.SetMovingRight(true);
-		basic_dog.SetMovingRight(true);
-	}
+    if (nChar == KEY_LEFT)
+    {
+        map.SetMovingLeft(true);
+        //Cats->SetMovingRight(true);
+        //Dogs->SetMovingLeft(true);
+    }
 
-	if (nChar == KEY_UP) {
-		map.SetMovingUp(true);
-	}
+    if (nChar == KEY_RIGHT)
+    {
+        map.SetMovingRight(true);
+        //Cats.SetMovingRight(true);
+        //Dogs.SetMovingRight(true);
+    }
 
-	if (nChar == KEY_DOWN) {
-		map.SetMovingDown(true);
-	}
-        
+    if (nChar == KEY_UP)
+    {
+        //map.SetMovingUp(true);
+    }
+
+    if (nChar == KEY_DOWN)
+    {
+        //map.SetMovingDown(true);
+    }
 
     //gamemap.OnKeyDown(nChar);
 }
 
 void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-    const char KEY_LEFT  = 0x25; // keyboard左箭頭
-    const char KEY_UP    = 0x26; // keyboard上箭頭
+    const char KEY_LEFT = 0x25; // keyboard左箭頭
+    const char KEY_UP = 0x26; // keyboard上箭頭
     const char KEY_RIGHT = 0x27; // keyboard右箭頭
-    const char KEY_DOWN  = 0x28; // keyboard下箭頭
+    const char KEY_DOWN = 0x28; // keyboard下箭頭
+    const char KEY_Z = 0x5A;
+    const char KEY_X = 0x58;
 
-	if (nChar == KEY_LEFT) 
-	{
-		basic_cat.SetMovingLeft(false);
-		basic_dog.SetMovingLeft(false);
-	}
+    if (nChar == KEY_LEFT)
+    {
+        map.SetMovingLeft(false);
+        //Cats.SetMovingLeft(false);
+        //Dogs.SetMovingLeft(false);
+    }
 
-	if (nChar == KEY_RIGHT)
-	{
-		basic_cat.SetMovingRight(false);
-		basic_dog.SetMovingRight(false);
-	}
+    if (nChar == KEY_RIGHT)
+    {
+        map.SetMovingRight(false);
+        //Cats.SetMovingRight(false);
+        //Dogs.SetMovingRight(false);
+    }
 
-	if (nChar == KEY_UP) {
-		map.SetMovingUp(false);
-	}
+    if (nChar == KEY_UP)
+    {
+        //map.SetMovingUp(false);
+    }
 
-	if (nChar == KEY_DOWN) {
-		map.SetMovingDown(false);
-	}
-        
+    if (nChar == KEY_DOWN)
+    {
+        //map.SetMovingDown(false);
+    }
+
+    if (nChar == KEY_Z)
+    {
+        Cats.push_back(new Basic_Cat);
+        Cats[Cats.size() - 1]->LoadBitmap();
+    }
 }
 
 void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
 {
-    basic_cat.SetMovingLeft(true);
+    if (point.x <= 107 && point.y >= 386 && wallet_level <= 8 && money >= upgrade_money)
+    {
+        money -= upgrade_money;
+        upgrade_money += 200;
+        addspeed += 1;
+        wallet_level += 1;
+        max_money += 450;
+    }
+
+    if (point.x >= 135 && point.x <= 210 && point.y >= 410 && point.y <= 470 && money >= 50)
+    {
+        money -= 50;
+        Cats.push_back(new Basic_Cat);
+        Cats[Cats.size() - 1]->LoadBitmap();
+        Buttons[0]->onClick();
+    }
+
+    if (point.x >= 222 && point.x <= 297 && point.y >= 410 && point.y <= 470 && money >= 100)
+    {
+        money -= 100;
+        Cats.push_back(new Tank_Cat);
+        Cats[Cats.size() - 1]->LoadBitmap();
+        Buttons[1]->onClick();
+    }
+
+    if (point.x >= 309 && point.x <= 384 && point.y >= 410 && point.y <= 470 && money >= 400)
+    {
+        money -= 400;
+        Cats.push_back(new Long_Leg_Cat);
+        Cats[Cats.size() - 1]->LoadBitmap();
+        Buttons[2]->onClick();
+    }
+
+    if (point.x >= 396 && point.x <= 471 && point.y >= 410 && point.y <= 470 && money >= 200)
+    {
+        money -= 200;
+        Cats.push_back(new Battle_Cat);
+        Cats[Cats.size() - 1]->LoadBitmap();
+        Buttons[3]->onClick();
+    }
+
+    if (((point.x) + sx) >= 375 && ((point.x) + sx) <= 465 && point.y >= 10 && point.y <= 100 && !god_cat_btn.GetChoose())
+    {
+        god_cat_btn.Begin();
+        CAudio::Instance()->Stop(AUDIO_BATTLE);
+        CAudio::Instance()->Play(AUDIO_GOD);
+        //god_cat_btn.OnClick();
+        //god_cat_btn.OnSinking();
+    }
+
+    if (god_cat_btn.GetChoose())
+    {
+        if (point.x >= 160 && point.x <= 210 && point.y >= 220 && point.y <= 270)
+        {
+            CAudio::Instance()->Stop(AUDIO_GOD);
+        }
+
+        if (point.x >= 253 && point.x <= 303 && point.y >= 220 && point.y <= 270)
+        {
+            CAudio::Instance()->Stop(AUDIO_GOD);
+        }
+
+        if (point.x >= 347 && point.x <= 396 && point.y >= 220 && point.y <= 270)
+        {
+            god_cat_btn.SetIsCure(true);
+            god_cat_btn.End();
+            //CAudio::Instance()->Stop(AUDIO_GOD);
+        }
+
+        if (point.x >= 440 && point.x <= 490 && point.y >= 220 && point.y <= 270)
+        {
+            CAudio::Instance()->Stop(AUDIO_GOD);
+        }
+    }
+
+    if (point.x >= 10 && point.x <= 80 && point.y >= 403 && point.y <= 438 && god_cat_btn.GetChoose())
+    {
+        god_cat_btn.End();
+        CAudio::Instance()->Stop(AUDIO_GOD);
+        CAudio::Instance()->Play(AUDIO_BATTLE);
+        //god_cat_btn.SetClick(false);
+        //god_cat_btn.DelayReset();
+    }
 }
 
 void CGameStateRun::OnLButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 {
-    basic_cat.SetMovingLeft(false);
 }
 
 void CGameStateRun::OnMouseMove(UINT nFlags, CPoint point)	// 處理滑鼠的動作
@@ -427,199 +669,98 @@ void CGameStateRun::OnMouseMove(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 
 void CGameStateRun::OnRButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
 {
-    basic_cat.SetMovingRight(true);
+    //Cats.SetMovingRight(true);
 }
 
 void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 {
-    basic_cat.SetMovingRight(false);
+    // Cats.SetMovingRight(false);
 }
 
 void CGameStateRun::OnShow()
 {
-    //
-    //  注意：Show裡面千萬不要移動任何物件的座標，移動座標的工作應由Move做才對，
-    //        否則當視窗重新繪圖時(OnDraw)，物件就會移動，看起來會很怪。換個術語
-    //        說，Move負責MVC中的Model，Show負責View，而View不應更動Model。
-    //
-    //
-    //  貼上背景圖、撞擊數、球、擦子、彈跳的球
-    //
-    //background.ShowBitmap();			// 貼上背景圖
-    //help.ShowBitmap();					// 貼上說明圖
-    //hits_left.ShowBitmap();
-    //gamemap.OnShow();
-    /*for (int i = 0; i < NUMBALLS; i++)
-        ball[i].OnShow();				// 貼上第i號球*/
-    //bball.OnShow();						// 貼上彈跳的球
-    //
-    //  貼上左上及右下角落的圖
-    //
-    /*corner.SetTopLeft(0, 0);
-    corner.ShowBitmap();
-    corner.SetTopLeft(SIZE_X - corner.Width(), SIZE_Y - corner.Height());
-    corner.ShowBitmap();*/
-    //practice.ShowBitmap();
-    //practice2.ShowBitmap();
-    //c_practice.OnShow();
-	//map.SetTopLeft(x, y);
-	map.OnShow();
-    basic_cat.OnShow(&map);					// 貼上擦子
-	basic_dog.OnShow(&map);
+    map.OnShow();
+    upgrade_btn.OnShow();
+    Number.ShowBitmap(1, money, max_money, 615, 0);
+    Number.ShowBitmap(2, Cats[0]->GetBlood(), 4000, map.ScreenX(665), 136);
+    Number.ShowBitmap(2, (*Dogs.GetEnemy()->begin())->GetBlood(), Dogs.GetMaxBlood(), map.ScreenX(265), 136);
+
+    if (wallet_level < 8) Number.ShowBitmap(3, upgrade_money, 0, 40, 460);
+
+    for (int i = 0; i < (int)Buttons.size(); i++)
+        Buttons[i]->OnShow();
+
+    for (vector<Dog*>::iterator iter = Dogs.GetEnemy()->begin(); iter != Dogs.GetEnemy()->end(); iter++)
+        (*iter)->OnShow(&map);
+
+    for (int i = 0; i < (int)Cats.size(); i++)
+        Cats[i]->OnShow(&map);					// 貼上擦子
+
+    god_cat_btn.OnShow(&map);
 }
 
-/*CPractice::CPractice()
+/*int CGameStateRun::FindFirst_cat()
 {
-    x = y = 0;
-}
-void CPractice::OnMove()
-{
-    if (y <= SIZE_Y)
+    int firstX = 668, index = 0;
+
+    for (int i = 0; i < (int) Cats.size(); i++)
     {
-        x += 3;
-        y += 3;
-    }
-    else
-    {
-        x = y = 0;
-    }
-}
-
-void CPractice::LoadBitmap()
-{
-    pic.LoadBitmap(Bell, RGB(255, 255, 255));
-}
-
-void CPractice::OnShow()
-{
-    pic.SetTopLeft(x, y);
-    pic.ShowBitmap();
-}*/
-
-/*CGameMap::CGameMap() : X(20), Y(40), MW(120), MH(100)
-{
-    int map_init[4][5] = { {0, 0, 1, 0, 0},
-        {0, 1, 2, 1, 0},
-        {1, 2, 1, 2, 1},
-        {2, 1, 2, 1, 2}
-    };
-
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 5; j++)
+        if (Cats[i]->GetX1() <= firstX && Cats[i]->isAlive())
         {
-            map[i][j] = map_init[i][j];
+            firstX = Cats[i]->GetX1();
+            index = i;
         }
     }
 
-    random_num = 0;
-    bballs = NULL;
+    return index;
 }
 
-void CGameMap::LoadBitmap()
+int CGameStateRun::FindFirst_dog()
 {
-    blue.LoadBitmap(IDB_BLUE);
-    green.LoadBitmap(IDB_GREEN);
-}
-void CGameMap::OnShow()
-{
-    for (int i = 0; i < 5; i++)
+	int firstX =0, index = 0;
+	int i = 0;
+	for (vector<Dog*>::iterator iter = Dogs.GetEnemy()->begin(); iter != Dogs.GetEnemy()->end(); iter++)
     {
-        for (int j = 0; j < 4; j++)
+        if ((*iter)->GetX2() >= firstX && (*iter)->isAlive())
         {
-            switch (map[j][i])
-            {
-                case 0:
-                    break;
+            firstX = (*iter)->GetX2();
+            index = i;
+        }
+		i++;
+    }
+    return index;
+}*/
 
-                case 1:
-                    blue.SetTopLeft(X + (MW * i), Y + (MH * j));
-                    blue.ShowBitmap();
-                    break;
+int CGameStateRun::FindEnemy_dog(int X1, int X2)
+{
+    int i = 0, index = 0;
 
-                case 2:
-                    green.SetTopLeft(X + (MW * i), Y + (MH * j));
-                    green.ShowBitmap();
-                    break;
+    for (vector<Dog*>::iterator iter = Dogs.GetEnemy()->begin(); iter != Dogs.GetEnemy()->end(); iter++)
+    {
+        if ((*iter)->GetX2() >= X1 && (*iter)->GetX2() < X2 && (*iter)->isAlive())
+        {
+            index = i;
+        }
 
-                default:
-                    ASSERT(0);
-            }
+        i++;
+    }
+
+    return index;
+}
+
+int CGameStateRun::FindEnemy_cat(int X1, int X2)
+{
+    int index = 0;
+
+    for (int i = 0; i < (int)Cats.size(); i++)
+    {
+        if (Cats[i]->GetX1() <= X2 && Cats[i]->GetX1() > X1 && Cats[i]->isAlive())
+        {
+            index = i;
         }
     }
 
-    for (int i = 0; i < random_num; i++)
-    {
-        bballs[i].OnShow();
-    }
-}*/
-
-/*void CBouncingBall::SetXY(int x, int y)
-{
-    this->x = x;
-    this->y = y;
+    return index;
 }
 
-void CBouncingBall::SetFloor(int floor)
-{
-    this->floor = floor;
 }
-
-void CBouncingBall::SetVelocity(int velocity)
-{
-    this->velocity = velocity;
-    this->initial_velocity = velocity;
-}*/
-/*void CGameMap::InitializeBouncingBall(int ini_index, int row, int col)
-{
-    const int VELOCITY = 10;
-    const int BALL_PIC_HEIGHT = 15;
-    int floor = Y + (row + 1) * MH - BALL_PIC_HEIGHT;
-    bballs[ini_index].LoadBitmap();
-    bballs[ini_index].SetFloor(floor);
-    bballs[ini_index].SetVelocity(VELOCITY + col);
-    bballs[ini_index].SetXY(X + col * MW + MW / 2, floor);
-}
-void CGameMap::RandomBouncingBall()
-{
-    const int MAX_RAND_NUM = 10;
-    random_num = (rand() % MAX_RAND_NUM) + 1;
-    delete[] bballs;
-    bballs = new CBouncingBall[random_num];
-    int ini_index = 0;
-
-    for (int row = 0; row < 4; row++)
-    {
-        for (int col = 0; col < 5; col++)
-        {
-            if (map[row][col] != 0 && ini_index < random_num)
-            {
-                InitializeBouncingBall(ini_index, row, col);
-                ini_index++;
-            }
-        }
-    }
-}
-void CGameMap::OnKeyDown(UINT nChar)
-{
-    const int KEY_SPACE = 0x20;
-
-    if (nChar == KEY_SPACE)
-    {
-        RandomBouncingBall();
-    }
-}
-void CGameMap::OnMove()
-{
-    for (int i = 0; i < random_num; i++)
-    {
-        bballs[i].OnMove();
-    }
-}
-
-CGameMap::~CGameMap()
-{
-    delete[] bballs;
-}*/
-}
-

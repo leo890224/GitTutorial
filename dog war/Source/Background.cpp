@@ -8,46 +8,47 @@
 
 namespace game_framework
 {
-	background::background()
+	Background::Background()
 	{
 		sx = 130;
 		sy = 0;
+		IsMovingLeft = IsMovingRight = false;
 	}
-	void background::LoadBitmap()
+	void Background::LoadBitmap()
 	{
 		map.AddBitmap(IDB_MAP);
 	}
 
-	void background::SetMovingUp(bool flag)
+	void Background::SetMovingLeft(bool flag)
 	{
-		IsMovingUp = flag;
+		IsMovingLeft = flag;
 	}
 
-	void background::SetMovingDown(bool flag)
+	void Background::SetMovingRight(bool flag)
 	{
-		IsMovingDown = flag;
+		IsMovingRight = flag;
 	}
-	int background::ScreenX(int x)
+	int Background::ScreenX(int x)
 	{
 		return x - sx;
 	}
-	void background::OnMove()
+	void Background::OnMove()
 	{
-		if (IsMovingUp)
+		if (IsMovingLeft)
 		{
 			if (sx < 0) sx = 0;
 			else sx-=2;
 			map.OnMove();
 		}
 
-		if (IsMovingDown)
+		if (IsMovingRight)
 		{
 			if (sx > 130) sx = 130;
 			else sx+=2;
 			map.OnMove();
 		}
 	}
-	void background::OnShow()
+	void Background::OnShow()
 	{
 		map.SetTopLeft(-sx, sy);
 		map.OnShow();

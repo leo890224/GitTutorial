@@ -1,17 +1,22 @@
+#ifndef BACKGROUND_H
+#define BACKGROUND_H
+
 namespace game_framework {
-	class background {
+	class Background
+	{
 	public:
-		background();
+		Background();
 		void LoadBitmap();
-		void SetMovingUp(bool);
-		void SetMovingDown(bool);
+		void SetMovingLeft(bool);
+		void SetMovingRight(bool);
 		int ScreenX(int);
 		void OnMove();
 		void OnShow();
 	private:
 		int sx, sy;
-		bool IsMovingUp;
-		bool IsMovingDown;
+		bool IsMovingLeft;
+		bool IsMovingRight;
 		CAnimation map;
 	};
 }
+#endif // !BACKGROUND_H
