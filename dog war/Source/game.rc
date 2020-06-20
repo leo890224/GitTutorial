@@ -414,55 +414,77 @@ God_leftM               BITMAP                  "..\\RES\\GodLM.bmp"
 
 BlingL                  BITMAP                  "..\\RES\\blingL.bmp"
 
-BlingL_01               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL1.bmp"
+BlingL_01               BITMAP                  "..\\RES\\blingL1.bmp"
 
-BlingL_02               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL2.bmp"
+BlingL_02               BITMAP                  "..\\RES\\blingL2.bmp"
 
-BlingL_03               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL3.bmp"
+BlingL_03               BITMAP                  "..\\RES\\blingL3.bmp"
 
-BlingL_04               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL4.bmp"
+BlingL_04               BITMAP                  "..\\RES\\blingL4.bmp"
 
-BlingL_05               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL5.bmp"
+BlingL_05               BITMAP                  "..\\RES\\blingL5.bmp"
 
-BlingL_06               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL6.bmp"
+BlingL_06               BITMAP                  "..\\RES\\blingL6.bmp"
 
-BlingL_07               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL7.bmp"
+BlingL_07               BITMAP                  "..\\RES\\blingL7.bmp"
 
-BlingL_08               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL8.bmp"
+BlingL_08               BITMAP                  "..\\RES\\blingL8.bmp"
 
-BlingL_09               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL9.bmp"
+BlingL_09               BITMAP                  "..\\RES\\blingL9.bmp"
 
-BlingL_10               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL10.bmp"
+BlingL_10               BITMAP                  "..\\RES\\blingL10.bmp"
 
-BlingL_11               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL11.bmp"
+BlingL_11               BITMAP                  "..\\RES\\blingL11.bmp"
 
-BlingL_12               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL12.bmp"
+BlingL_12               BITMAP                  "..\\RES\\blingL12.bmp"
 
-BlingL_13               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL13.bmp"
+BlingL_13               BITMAP                  "..\\RES\\blingL13.bmp"
 
-BlingL_14               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL14.bmp"
+BlingL_14               BITMAP                  "..\\RES\\blingL14.bmp"
 
-BlingL_15               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL15.bmp"
+BlingL_15               BITMAP                  "..\\RES\\blingL15.bmp"
 
-BlingL_16               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL16.bmp"
+BlingL_16               BITMAP                  "..\\RES\\blingL16.bmp"
 
-BlingL_17               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL17.bmp"
+BlingL_17               BITMAP                  "..\\RES\\blingL17.bmp"
 
-BlingL_18               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL18.bmp"
+BlingL_18               BITMAP                  "..\\RES\\blingL18.bmp"
 
-BlingL_19               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL19.bmp"
+BlingL_19               BITMAP                  "..\\RES\\blingL19.bmp"
 
-BlingL_20               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL20.bmp"
+BlingL_20               BITMAP                  "..\\RES\\blingL20.bmp"
 
-BlingL_21               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL21.bmp"
+BlingL_21               BITMAP                  "..\\RES\\blingL21.bmp"
 
-BlingL_22               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL22.bmp"
+BlingL_22               BITMAP                  "..\\RES\\blingL22.bmp"
 
-BlingL_23               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL23.bmp"
+BlingL_23               BITMAP                  "..\\RES\\blingL23.bmp"
 
-BlingL_24               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL24.bmp"
+BlingL_24               BITMAP                  "..\\RES\\blingL24.bmp"
 
-BlingL_25               BITMAP                  "C:\\Users\\aaaa\\Desktop\\新增資料夾\\dog war\\RES\\blingL25.bmp"
+BlingL_25               BITMAP                  "..\\RES\\blingL25.bmp"
+
+stage1                  BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\stage1.bmp"
+
+stage2                  BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\stage2.bmp"
+
+pin                     BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\pin.bmp"
+
+pin2                    BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\pin2.bmp"
+
+pin3                    BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\pin3.bmp"
+
+battle_btn              BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\battle_btn.bmp"
+
+battle_btn2             BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\battle_btn2.bmp"
+
+battle_btn3             BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\battle_btn3.bmp"
+
+battle_btn4             BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\battle_btn4.bmp"
+
+L_arrow                 BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\L_arrow.bmp"
+
+R_arrow                 BITMAP                  "C:\\Users\\User\\Documents\\oopcourse821\\dog war\\RES\\R_arrow.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////

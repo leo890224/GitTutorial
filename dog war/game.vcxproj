@@ -306,6 +306,7 @@
     <ClCompile Include="Source\Tank_Cat.cpp" />
     <ClCompile Include="Source\Tank_Cat_Btn.cpp" />
     <ClCompile Include="Source\Upgrade_Btn.cpp" />
+    <ClCompile Include="Source\World_Background.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\audio.h" />
@@ -335,6 +336,7 @@
     <ClInclude Include="Source\Tank_Cat.h" />
     <ClInclude Include="Source\Tank_Cat_Btn.h" />
     <ClInclude Include="Source\Upgrade_Btn.h" />
+    <ClInclude Include="Source\World_Background.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\game.rc">
@@ -363,6 +365,11 @@
     <Image Include="RES\basic_cat_btn.bmp" />
     <Image Include="RES\basic_cat_btn_dark.bmp" />
     <Image Include="RES\basic_dog_btn.bmp" />
+    <Image Include="RES\battle_b.bmp" />
+    <Image Include="RES\battle_btn.bmp" />
+    <Image Include="RES\battle_btn2.bmp" />
+    <Image Include="RES\battle_btn3.bmp" />
+    <Image Include="RES\battle_btn4.bmp" />
     <Image Include="RES\battle_cat.bmp" />
     <Image Include="RES\battle_cat2.bmp" />
     <Image Include="RES\battle_cat3.bmp" />
@@ -373,6 +380,8 @@
     <Image Include="RES\battle_cat_btn.bmp" />
     <Image Include="RES\battle_cat_btn_dark.bmp" />
     <Image Include="RES\battle_cat_punch.bmp" />
+    <Image Include="res\bitmap5.bmp" />
+    <Image Include="res\bitmap6.bmp" />
     <Image Include="RES\blingL.bmp" />
     <Image Include="RES\blingL1.bmp" />
     <Image Include="RES\blingL10.bmp" />
@@ -523,17 +532,24 @@
     <Image Include="RES\long_leg_cat_punch.bmp" />
     <Image Include="RES\long_leg__cat_attack4.bmp" />
     <Image Include="RES\LW.bmp" />
+    <Image Include="RES\L_arrow.bmp" />
     <Image Include="RES\nine.bmp" />
     <Image Include="RES\one.bmp" />
+    <Image Include="RES\pin.bmp" />
+    <Image Include="RES\pin2.bmp" />
+    <Image Include="RES\pin3.bmp" />
     <Image Include="RES\return_btn.bmp" />
     <Image Include="RES\return_btn2.bmp" />
     <Image Include="RES\return_btn3.bmp" />
     <Image Include="RES\return_btn4.bmp" />
     <Image Include="RES\return_btn5.bmp" />
+    <Image Include="RES\R_arrow.bmp" />
     <Image Include="RES\seven.bmp" />
     <Image Include="RES\six.bmp" />
     <Image Include="RES\slash.bmp" />
     <Image Include="RES\slash2.bmp" />
+    <Image Include="RES\stage1.bmp" />
+    <Image Include="RES\stage2.bmp" />
     <Image Include="RES\start.bmp" />
     <Image Include="RES\start_btn.bmp" />
     <Image Include="RES\start_btn2.bmp" />

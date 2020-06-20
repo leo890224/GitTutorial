@@ -169,7 +169,7 @@ void CGameStateInit::OnShow()
             unPress = false;
             start_press.Reset();
             CAudio::Instance()->Stop(AUDIO_MENU);
-            GotoGameState(GAME_STATE_RUN);
+			GotoGameState(GAME_STATE_STAGE);
         }
     }
     else
@@ -204,16 +204,36 @@ CGameStateStage::CGameStateStage(CGame* g) : CGameState(g)
 
 void CGameStateStage::OnInit()
 {
-    ShowInitProgress(25);	// 一開始的loading進度為0%
-    world.LoadBitmap(world_map);
-    return_init.LoadBitmap(return_btn, RGB(255, 255, 255));
-    return_flash.AddBitmap(return_btn2, RGB(255, 255, 255));
-    return_flash.AddBitmap(return_btn3, RGB(255, 255, 255));
-    return_press.AddBitmap(return_btn4, RGB(255, 255, 255));
-    return_press.AddBitmap(return_btn5, RGB(255, 255, 255));
-    return_press.AddBitmap(return_btn, RGB(255, 255, 255));
-    return_press.AddBitmap(return_btn, RGB(255, 255, 255));
-    Sleep(300);
+	ShowInitProgress(25);	// 一開始的loading進度為0%
+	map.LoadBitmap();
+	Stage1.LoadBitmap(stage1);
+	Stage2.LoadBitmap(stage2);
+	Left.LoadBitmap(L_arrow, RGB(255, 255, 255));
+	Right.LoadBitmap(R_arrow, RGB(255, 255, 255));
+	stages.push_back(Stage1);
+	stages.push_back(Stage2);
+	Pin.AddBitmap(pin, RGB(255, 255, 255));
+	Pin.AddBitmap(pin2, RGB(255, 255, 255));
+	Pin.AddBitmap(pin, RGB(255, 255, 255));
+	Pin.AddBitmap(pin3, RGB(255, 255, 255));
+	return_init.LoadBitmap(return_btn, RGB(255, 255, 255));
+	return_flash.AddBitmap(return_btn2, RGB(255, 255, 255));
+	return_flash.AddBitmap(return_btn3, RGB(255, 255, 255));
+	return_press.AddBitmap(return_btn4, RGB(255, 255, 255));
+	return_press.AddBitmap(return_btn5, RGB(255, 255, 255));
+	return_press.AddBitmap(return_btn, RGB(255, 255, 255));
+	return_press.AddBitmap(return_btn, RGB(255, 255, 255));
+	battle_flash.AddBitmap(battle_btn, RGB(255, 255, 255));
+	battle_flash.AddBitmap(battle_btn2, RGB(255, 255, 255));
+	battle_press.AddBitmap(battle_btn3, RGB(255, 255, 255));
+	battle_press.AddBitmap(battle_btn4, RGB(255, 255, 255));
+	battle_press.AddBitmap(battle_btn4, RGB(255, 255, 255));
+	isPress = unPress = battle_start = false;
+	pin_x = pin_y = 0;
+	stage_x = 240;
+	L_x = 10; R_x = 593; bias = 0;
+	stage = 1;
+	Sleep(300);
 }
 
 void CGameStateStage::OnBeginState()
@@ -231,53 +251,112 @@ void CGameStateStage::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CGameStateStage::OnLButtonUp(UINT nFlags, CPoint point)
 {
-    if (point.x <= 77 && point.y >= 405)
-    {
-        isPress = false;
-        unPress = true;
-    }
+	if (point.x <= 77 && point.y >= 405) {
+		isPress = false;
+		unPress = true;
+	}
+
+	if (point.x >= 428 && point.x <= 629 && point.y >= 331 && point.y <= 381)
+	{
+		battle_start = true;
+	}
+}
+
+void CGameStateStage::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	const char KEY_LEFT = 0x25;
+	const char KEY_RIGHT = 0x27;
+
+	if (nChar == KEY_LEFT)
+	{
+		stage = 1;
+	}
+
+	if (nChar == KEY_RIGHT)
+	{
+		stage = 2;
+	}
 }
 
 void CGameStateStage::OnMove()
 {
-    if (isPress)
-    {
-        return_flash.OnMove();
-    }
+	if (stage == 1) { 
+		nx = 2195; ny = 450;
+		if (stages[0].Left() < 240) stage_x += 10;
+		if (stages[0].Left() > 240) stage_x -= 10;
+	}
+	if (stage == 2) {
+		nx = 2318; ny = 370;
+		if (stages[1].Left() < 240) stage_x += 10;
+		if (stages[1].Left() > 240) stage_x -= 10;
+	}
 
-    if (unPress)
-    {
-        return_press.OnMove();
-    }
+	map.OnMove(nx, ny);
+	Pin.OnMove();
+
+	if (pin_x < nx) pin_x += 8;
+	if (pin_x > nx) pin_x -= 8;
+	if (pin_y < ny) pin_y += 3;
+	if (pin_y > ny) pin_y -= 3;
+
+	if (isPress) {
+		return_flash.OnMove();
+	}
+	if (unPress) {
+		return_press.OnMove();
+	}
+
+	if (battle_start) battle_press.OnMove();
+	else battle_flash.OnMove();	
+
+	if (L_x == 10) bias = 1;
+	if (L_x == 15) bias = -1;
 }
 
 void CGameStateStage::OnShow()
 {
-    world.SetTopLeft(0, 0);
-    world.ShowBitmap();
+	map.OnShow();
 
-    if (isPress)
-    {
-        return_flash.SetTopLeft(0, 405);
-        return_flash.OnShow();
-    }
-    else if (unPress)
-    {
-        return_press.SetTopLeft(0, 405);
-        return_press.OnShow();
+	for (vector<CMovingBitmap>::iterator iter = stages.begin(); iter != stages.end(); iter++) {
+		iter->SetTopLeft(stage_x + (iter - stages.begin()) * 170, 10);
+		iter->ShowBitmap();
+	}
 
-        if (return_press.IsFinalBitmap())
-        {
-            unPress = false;
-            return_press.Reset();
-            GotoGameState(GAME_STATE_INIT);
-        }
-    }
-    else
-    {
-        return_init.SetTopLeft(0, 405);
-        return_init.ShowBitmap();
-    }
+	Pin.SetTopLeft(map.ScreenX(pin_x - 14), map.ScreenY(pin_y - 19));
+	Pin.OnShow();
+
+	if (isPress) {
+		return_flash.SetTopLeft(0, 405);
+		return_flash.OnShow();
+	}
+	else if (unPress) {
+		return_press.SetTopLeft(0, 405);
+		return_press.OnShow();
+		if (return_press.IsFinalBitmap()) {
+			unPress = false;
+			return_press.Reset();
+			GotoGameState(GAME_STATE_INIT);
+		}
+	}
+	else {
+		return_init.SetTopLeft(0, 405);
+		return_init.ShowBitmap();
+	}
+
+	if (battle_start) {
+		battle_press.SetTopLeft(427, 330);
+		battle_press.OnShow();
+		if (battle_press.IsFinalBitmap()) GotoGameState(GAME_STATE_RUN);
+	}
+	else {
+		battle_flash.SetTopLeft(427, 330);
+		battle_flash.OnShow();
+	}
+
+	Left.SetTopLeft(L_x += bias, 5);
+	if (stage != 1) Left.ShowBitmap();
+	Right.SetTopLeft(R_x -= bias, 5);
+	if (stage != 2) Right.ShowBitmap();
 }
 
 /////////////////////////////////////////////////////////////////////////////

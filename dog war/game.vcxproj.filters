@@ -144,6 +144,9 @@
     <ClCompile Include="Source\God_Cat_Btn.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\World_Background.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\audio.h">
@@ -225,6 +228,9 @@
       <Filter>MyGame</Filter>
     </ClInclude>
     <ClInclude Include="Source\God_Cat_Btn.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\World_Background.h">
       <Filter>MyGame</Filter>
     </ClInclude>
   </ItemGroup>
@@ -865,6 +871,48 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="RES\blingL25.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\stage1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\pin.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\pin3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\stage2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\L_arrow.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\R_arrow.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_btn2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_btn3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_btn4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\battle_b.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\pin2.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

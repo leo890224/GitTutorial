@@ -215,6 +215,18 @@
 #define BlingL_24                       395
 #define IDB_BITMAP3                     396
 #define BlingL_25                       396
+#define stage1                          397
+#define stage2                          403
+#define pin                             404
+#define pin2                            405
+#define pin3                            406
+#define battle_btn                      407
+#define battle_btn2                     408
+#define battle_btn3                     409
+#define battle_btn4                     410
+#define L_arrow                         411
+#define IDB_BITMAP5                     412
+#define R_arrow                         412
 #define IDC_README                      1001
 #define ID_FILE_PAUSE                   32771
 #define ID_TOGGLE_FULLSCREEN            32772
@@ -227,7 +239,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        397
+#define _APS_NEXT_RESOURCE_VALUE        413
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           101

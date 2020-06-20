@@ -38,7 +38,8 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "Background.h"
+#include "World_Background.h"
+#include "Stage_Background.h"
 #include "Cat.h"
 #include "Basic_Cat.h"
 #include "Tank_Cat.h"
@@ -112,17 +113,30 @@ class CGameStateStage : public CGameState
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnLButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
 		void OnLButtonUp(UINT nFlags, CPoint point);
-		//void OnKeyUp(UINT, UINT, UINT);
+		void OnKeyDown(UINT, UINT, UINT);
 	protected:
 		void OnMove();
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		bool isPress, unPress;
-		Background map;
-		CMovingBitmap world;
+		bool battle_start;
+		int stage;
+		int nx, ny;
+		int pin_x, pin_y;
+		int stage_x;
+		int L_x, R_x, bias;
+		CAnimation Pin;
+		World_Background map;
 		CMovingBitmap return_init;
+		CMovingBitmap Stage1;
+		CMovingBitmap Stage2;
+		CMovingBitmap Left;
+		CMovingBitmap Right;
+		vector<CMovingBitmap> stages;
 		CAnimation return_press;
 		CAnimation return_flash;
+		CAnimation battle_press;
+		CAnimation battle_flash;
 };
 
 class CGameStateRun : public CGameState
